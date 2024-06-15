@@ -3,7 +3,7 @@ import { addLiterature,getLiterature,updateLiterature } from '../controller/lite
 
 const router = express.Router();
 
-router.post('/l',addLiterature);
-router.get('/l',getLiterature);
-router.patch('/l',updateLiterature);
+router.post('/',addLiterature);
+router.get('/',getLiterature);
+router.patch('/',updateLiterature);
 export default router;

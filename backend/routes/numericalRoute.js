@@ -3,7 +3,7 @@ import { addnumerical,getNumerical,updateNumerical } from '../controller/numeric
 
 const router = express.Router();
 
-router.post('/n',addnumerical);
-router.get('/n',getNumerical);
-router.put('/n',updateNumerical);
+router.post('/',addnumerical);
+router.get('/',getNumerical);
+router.put('/',updateNumerical);
 export default router;

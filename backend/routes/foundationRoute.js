@@ -2,8 +2,8 @@ import express from 'express';
 import { addfoundation,getfoundation,updatefoundation } from '../controller/foundationController.js';
 const router = express.Router();
 
-router.post('/f',addfoundation);
-router.get('/f',getfoundation);
-router.put('/f',updatefoundation);
+router.post('/',addfoundation);
+router.get('/',getfoundation);
+router.put('/',updatefoundation);
 export default router;
 
