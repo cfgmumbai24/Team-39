@@ -4,6 +4,6 @@ import { addLiterature,getLiterature,updateLiterature } from '../controller/lite
 const router = express.Router();
 
 router.post('/',addLiterature);
-router.get('/',getLiterature);
+router.post('/l',getLiterature);
 router.put('/',updateLiterature);
 export default router;

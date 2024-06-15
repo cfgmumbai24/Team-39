@@ -20,9 +20,11 @@ export const addfoundation = async (req, res) => {
 export const getfoundation = async (req, res) => {
     const {sid}=req.body;
     try {
-        const totalFoundation=await FoundationModel.find({sid:sid});
+        const totalFoundation=await FoundationModel.find({sid});
+        console.log(totalFoundation)
         res.status(200).json(totalFoundation);
     } catch (error) {
+        console.log(sid)
         console.log(error)
     }
 }
