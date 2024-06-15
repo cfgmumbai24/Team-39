@@ -20,5 +20,4 @@ const numericalModelSchema = new mongoose.Schema({
 });
 
 const NumericalModel = mongoose.model('NumericalModel', numericalModelSchema);
-
 export default NumericalModel;
