@@ -6,6 +6,7 @@ import Edit from './component/Edit';
 import FoundationForm from './pages/foundationform';
 import Literatureform from './pages/Literatureform';
 import Updateoredit from './pages/updateoredit';
+import NumericalForm from './pages/NumericalForm';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/:id/edit' element={<Updateoredit />} />
           <Route path='/:id/edit/foundation' element={<FoundationForm />} />
           <Route path='/:id/edit/literature' element={<Literatureform />} />
+          <Route path = '/:id/edit/numerical' element = {<NumericalForm/>} />
           {/* <Route path='/literature' element={<Literatureform/>} /> */}
         </Routes>
       </Router>
