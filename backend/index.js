@@ -9,6 +9,7 @@ import foundationRoute from '../backend/routes/foundationRoute.js'
 import literatureRoute from '../backend/routes/literatureRoute.js'
 import numericalRoute from '../backend/routes/numericalRoute.js'
 import emotionalRoute from '../backend/routes/emotionalRoute.js'
+import UserRoute from "./routes/userAuthRoutes.js";
 
 
 dotenv.config();
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
-
+app.use('/userauth',UserRoute)
 app.use("/found", foundationRoute);
 app.use("/lit", literatureRoute);
 app.use("/num", numericalRoute);
