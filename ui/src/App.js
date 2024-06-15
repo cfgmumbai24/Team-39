@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Progress from './component/Progress';
 import Edit from './component/Edit';
 import FoundationForm from './pages/foundationform';
-import Literatureform from './pages/literatureform';
+import Literatureform from './pages/LiteratureForm';
 import Updateoredit from './pages/updateoredit';
 
 const App = () => {

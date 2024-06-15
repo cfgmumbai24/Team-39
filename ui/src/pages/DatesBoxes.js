@@ -16,7 +16,6 @@ const DatesBoxes = ({month="January",days=31}) => {
         ))}
       </div>
     </div>
-    
   );
 };
 
