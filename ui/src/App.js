@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Progress from './components/Progress';
-import Edit from './components/Edit';
+import Home from './component/Home';
+import Progress from './component/Progress';
+import Edit from './component/Edit';
 const App = () => {
   return (
-    <div className=' text-gray-500 bg-green-700'>
+    <div >
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
