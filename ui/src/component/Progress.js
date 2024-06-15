@@ -1,17 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import Navbar from '../pages/Navbar'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DatesBoxes from '../pages/DatesBoxes';
 const Progress = () => {
     const [list, setList] = useState([]);
-  useEffect(()=>{
-    axios.get("https:localhost:8000/progress")
-    .then(result=>setList(result.data))
-    .catch(err=>console.log(err))
-  },[]);
-
-  const handleMonthChange = (event) => {
+    const navigate=useNavigate();
+    const {id}=useParams();
+    const handleMonthChange = (event) => {
     const selectedMonth = event.target.value;
     let days;
 
@@ -59,7 +55,18 @@ const Progress = () => {
     }
     setMonth([selectedMonth.charAt(0).toUpperCase() + selectedMonth.slice(1), days]);
   };
-
+  const chartf = (e) => {
+    e.preventDefault();
+    navigate(`/${id}/progress/chartf`);
+};
+  const chartl = (e) => {
+    e.preventDefault();
+    navigate(`/${id}/progress/chartl`);
+};
+  const chartn = (e) => {
+    e.preventDefault();
+    navigate(`/${id}/progress/chartn`);
+};
 
   const [Foundation, setFoundation] = useState(true);
   const [Language, setLanguage] = useState(false);
@@ -120,11 +127,9 @@ const Progress = () => {
         <option value="december">December</option>
       </select>
             <div className="mt-4 flex justify-center">
-                <Link to="/f">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow" onClick={chartf}>
                     Generate Report
                 </button>
-                </Link>
             </div>
             </div>
         )}
@@ -154,11 +159,9 @@ const Progress = () => {
         <option value="december">December</option>
       </select>
             <div className="mt-4 flex justify-center">
-                <Link to="/l">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow" onClick={chartl}>
                     Generate Report
                 </button>
-                </Link>
             </div>
             </div>
         )}
@@ -188,11 +191,9 @@ const Progress = () => {
         <option value="december">December</option>
       </select>
             <div className="mt-4 flex justify-center">
-                <Link to="/n">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow" onClick={chartn}>
                     Generate Report
                 </button>
-                </Link>
             </div>
             </div>
         )}
