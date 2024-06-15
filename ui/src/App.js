@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './component/Home';
 import Progress from './component/Progress';
 import Edit from './component/Edit';
+import FoundationForm from './pages/foundationform';
+import Literatureform from './pages/literatureform';
+import Updateoredit from './pages/updateoredit';
+
 const App = () => {
   return (
     <div >
@@ -10,7 +14,9 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/progress' element={<Progress />} />
-          <Route path='/edit' element={<Edit />} />
+          <Route path='/edit' element={<Updateoredit />} />
+          <Route path='/foundation' element={<FoundationForm />} />
+          <Route path='/literature' element={<Literatureform/>} />
         </Routes>
       </Router>
 
