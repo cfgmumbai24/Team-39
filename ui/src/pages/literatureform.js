@@ -1,11 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
-
+import Updateoredit from './updateoredit'
 const Literatureform = () => {
   return (
     <div>
-        <Navbar/>
-    
+        <Updateoredit/>
     <div>
         <form className="w-full max-w-lg mx-auto mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
   <div className="mb-4">

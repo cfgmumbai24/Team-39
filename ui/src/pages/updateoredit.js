@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Updateoredit = () => {
     const [Language, setLanguage] = useState(false);
@@ -8,7 +9,12 @@ const Updateoredit = () => {
     const navigate =useNavigate();
 
   return (
+    <div>
+        <div className='block'>
+        <Navbar/>
+        </div>
     <div className="flex flex-wrap justify-center gap-x-20 mt-16">
+        
     <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={()=>{setFoundation(true);
         setLanguage(false);
         setNumerical(false);
@@ -28,6 +34,7 @@ const Updateoredit = () => {
         setNumerical(true);}}>
         Numerical
     </button>
+    </div>
     </div>
   )
 }
