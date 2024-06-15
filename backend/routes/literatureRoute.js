@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.post('/',addLiterature);
 router.get('/',getLiterature);
-router.patch('/',updateLiterature);
+router.put('/',updateLiterature);
 export default router;

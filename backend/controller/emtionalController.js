@@ -9,7 +9,7 @@ export const addEmo = async (req, res) => {
             q1,q2,q3,q4,q5,sid,avg
         })
         await newEmo.save();
-        res.status(201).json(newEmo);
+        res.status(201).json({message:"emo added",data:newEmo});
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
