@@ -1,6 +1,9 @@
 import express from 'express';
-import { addliteracture } from '../controller/literature.js';
+import { addLiterature,getLiterature,updateLiterature } from '../controller/literatureController.js';
 
 const router = express.Router();
 
-router.post('/literature',addliteracture);
+router.post('/l',addLiterature);
+router.get('/l',getLiterature);
+router.patch('/l',updateLiterature);
+export default router;

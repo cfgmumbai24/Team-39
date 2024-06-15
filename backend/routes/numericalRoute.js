@@ -1,6 +1,9 @@
 import express from 'express';
-import { addnumerical } from '../controller/numerical.js';
+import { addnumerical,getNumerical,updateNumerical } from '../controller/numericalcontroller.js';
 
 const router = express.Router();
 
-router.post('/num',addnumerical);
+router.post('/n',addnumerical);
+router.get('/n',getNumerical);
+router.put('/n',updateNumerical);
+export default router;
