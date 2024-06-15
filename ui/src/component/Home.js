@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../pages/Navbar';
 const Home = () => {
@@ -49,18 +49,20 @@ const Home = () => {
                 onChange={(e) => setRollno(e.target.value)}
                 type="text"
                 placeholder="Enter Student's Rollno"
-                className="border-2 border-gray-300 p-2 w-full rounded focus:border-blue-500 focus:outline-none rounded-xl"
+                className="border-2 border-gray-300 p-2 w-full focus:border-blue-500 focus:outline-none rounded-xl"
                 />
             </div>
 
             {/* Buttons */}
             <div className="flex space-x-4">
-                <button
+                
+                <button onClickCapture={()=>{navigate("/progress")}}
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg h-16 w-full"
                 onClick={Progress}
                 >
                 Progress
                 </button>
+                
                 <button
                 className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg h-16 w-full"
                 onClick={Edit}
