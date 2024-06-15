@@ -1,18 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../model/goat_data.dart';
+import 'package:flutter_app/model/goat_data.dart';
 
 class FirestoreHelper {
-  final CollectionReference goatCollection =
-      FirebaseFirestore.instance.collection('goats');
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<void> addGoatData(GoatData goatData) {
-    return goatCollection.doc(goatData.id).set(goatData.toMap());
+    return _db.collection('goat_data').doc(goatData.id).set(goatData.toMap());
   }
 
   Future<List<GoatData>> getGoatData() async {
-    QuerySnapshot snapshot = await goatCollection.get();
-    return snapshot.docs.map((doc) {
-      return GoatData.fromMap(doc.data() as Map<String, dynamic>);
-    }).toList();
+    QuerySnapshot querySnapshot = await _db.collection('goat_data').get();
+    return querySnapshot.docs.map((doc) => GoatData.fromMap(doc.data() as Map<String, dynamic>)).toList();
   }
 }
