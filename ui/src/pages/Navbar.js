@@ -1,18 +1,25 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const Navbar = () => {
-    return (
-      <nav className="bg-white border-b-2 border-gray-200 px-4 py-2.5 sm:px-6 lg:px-8">
-        <div className="container flex flex-wrap items-center justify-start gap-x-[10%]">
-          <div className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">Home</div>
-          <div className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">Resources</div>
-          <div className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">About</div>
-          <div className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">Contact Us</div>
+  return (
+    <nav className="bg-white border-b-2 border-gray-200 py-2.5 px-[200px]">
+      <div className="container flex items-center justify-between">
+        {/* Logo Section */}
+        <img
+          className="h-[100px]"
+          src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQALtOxG1WRlUywqPVhc0nHRR0OQFL6i35lyQ&s'
+          alt='logo'
+        />
+        {/* Links Section */}
+        <div className="flex space-x-8">
+          <Link to='/' className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg cursor-pointer">Home</Link>
+          <Link className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">Resources</Link>
+          <Link className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">About</Link>
+          <Link className="text-xl font-bold text-gray-900 hover:bg-purple-300 px-3 py-2 rounded-lg">Contact Us</Link>
         </div>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
-  
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
