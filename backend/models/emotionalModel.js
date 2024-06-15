@@ -11,5 +11,5 @@ const emotionalSchema =new  mongoose.Schema({
     createdAt:{type:Date,required:true,default:Date.now}
 
 })
-const EmotionalModel=mongoose.model("Literature",emotionalSchema)
+const EmotionalModel=mongoose.model("Emotional",emotionalSchema)
 export default EmotionalModel
