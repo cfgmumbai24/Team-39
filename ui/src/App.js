@@ -5,7 +5,7 @@ import Progress from './component/Progress';
 import Edit from './component/Edit';
 const App = () => {
   return (
-    <div className=' text-gray-500 bg-green-700'>
+    <div >
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
