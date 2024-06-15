@@ -8,7 +8,7 @@ const Home = () => {
     const Progress = (e) => {
         e.preventDefault();
         axios
-          .post("https://localhost:8000/progress", { rollno: rollno})
+          .post("https://localhost:8000/progress?sId="+rollno)
           .then((result) => {
             navigate("/progress");
           })
@@ -17,7 +17,7 @@ const Home = () => {
         const Edit = (e) => {
             e.preventDefault();
             axios
-            .post("https://localhost:8000/edit", { rollno: rollno})
+            .post("https://localhost:8000/edit?sId="+rollno)
             .then((result) => {
                 navigate("/edit");
             })
