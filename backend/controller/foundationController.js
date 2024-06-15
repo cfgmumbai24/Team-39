@@ -4,7 +4,9 @@ import FoundationModel from '../models/foundationModel.js';
 export const addfoundation = async (req, res) => {
     const {speaking,learning,writing,physicalInvolvement,craft,sid} = req.body;
     try {
+        console.log(speaking,learning,writing,physicalInvolvement,craft,sid)
         let avg=(speaking+learning+writing+physicalInvolvement+craft)/5;
+        console.log(avg);
         const newFoundation=new FoundationModel({
             speaking,learning,writing,physicalInvolvement,craft,sid,avg
         })

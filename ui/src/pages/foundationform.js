@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Updateoredit from './updateoredit';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const FoundationForm = () => {
+  const {id}=useParams();
+  const [submitted,setSubmitted]=useState(false)
   const [formValues, setFormValues] = useState({
+    sid:Number(id),
     speaking: 0,
     listening: 0,
     writing: 0,
@@ -15,26 +20,38 @@ const FoundationForm = () => {
     const { name, value } = event.target;
     setFormValues({
       ...formValues,
-      [name]: parseInt(value)
+      [name]: Number(value)
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Handle form submission here
-    console.log('Form Values:', formValues);
+    try {
+      const response=await axios.post('http://localhost:5000/found',formValues);
+      console.log(response);
+      setSubmitted(true)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
     <div>
         <Updateoredit/>
-        <div>
+        {submitted ? (
+          <>
+          <div>Successfully Submitted</div>
+          </>
+        ):(
+          <>
+          <div>
       <form
         className="w-full max-w-lg mx-auto mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit}
       >
         {[
           { label: 'Speaking', name: 'speaking' },
-          { label: 'Listening', name: 'listening' },
+          { label: 'Learning', name: 'learning' },
           { label: 'Writing', name: 'writing' },
           { label: 'Physical Involvement', name: 'physicalInvolvement' },
           { label: 'Craft', name: 'craft' }
@@ -50,7 +67,7 @@ const FoundationForm = () => {
                     type="radio"
                     name={field.name}
                     value={num}
-                    checked={formValues[field.name] === `${num}`}
+                    // checked={formValues[field.name] === `${num}`}
                     onChange={handleChange}
                     className="form-radio"
                   />
@@ -70,6 +87,9 @@ const FoundationForm = () => {
         </div>
       </form>
     </div>
+          </>
+        )}
+        
     </div>
   );
 };

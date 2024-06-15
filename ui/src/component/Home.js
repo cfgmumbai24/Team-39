@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../pages/Navbar';
 const Home = () => {
     const [rollno, setRollno] = useState('');
+    const [error, setError] = useState(''); 
+        const location=useLocation();
     const navigate = useNavigate();
     const Progress = (e) => {
         e.preventDefault();
@@ -16,12 +18,7 @@ const Home = () => {
       };
         const Edit = (e) => {
             e.preventDefault();
-            axios
-            .post("https://localhost:8000/edit?sId="+rollno)
-            .then((result) => {
-                navigate("/edit");
-            })
-            .catch((err) => console.log(err));
+            navigate(`/${rollno}/edit`);
         };
 
     return (
@@ -53,6 +50,7 @@ const Home = () => {
                 />
             </div>
 
+            {error && <div className="text-red-500 mb-4">{error}</div>}
             {/* Buttons */}
             <div className="flex space-x-4">
                 

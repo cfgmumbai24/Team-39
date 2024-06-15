@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Progress from './component/Progress';
 import Edit from './component/Edit';
 import FoundationForm from './pages/foundationform';
-import Literatureform from './pages/LiteratureForm';
+import Literatureform from './pages/Literatureform';
 import Updateoredit from './pages/updateoredit';
 
 const App = () => {
@@ -14,9 +14,10 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/progress' element={<Progress />} />
-          <Route path='/edit' element={<Updateoredit />} />
-          <Route path='/foundation' element={<FoundationForm />} />
-          <Route path='/literature' element={<Literatureform/>} />
+          <Route path='/:id/edit' element={<Updateoredit />} />
+          <Route path='/:id/edit/foundation' element={<FoundationForm />} />
+          <Route path='/:id/edit/literature' element={<Literatureform />} />
+          {/* <Route path='/literature' element={<Literatureform/>} /> */}
         </Routes>
       </Router>
 
