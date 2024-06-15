@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const literatureSchema =new  mongoose.Schema({
+const LiteratureSchema =new  mongoose.Schema({
     english:{type:Number ,required:true,min:0,max:100},
     hindi:{type:Number ,required:true,min:0,max:100},
     marathi:{type:Number ,required:true,min:0,max:100},
@@ -9,5 +9,5 @@ const literatureSchema =new  mongoose.Schema({
     createdAt:{type:Date,required:true,default:Date.now}
 
 })
-const LiteratureModel=mongoose.model("Literature",literatureSchema)
+const LiteratureModel=mongoose.model("literature",LiteratureSchema)
 export default LiteratureModel

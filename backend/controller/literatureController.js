@@ -1,4 +1,4 @@
-import LiteratureModel from '../models/literatureModel';
+import LiteratureModel from '../models/literatureModel.js';
 
 
 export const addLiterature = async (req, res) => {

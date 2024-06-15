@@ -1,4 +1,4 @@
-import NumericalModel from '../models/numericalmodel';
+import NumericalModel from '../models/numericalmodel.js';
 
 
 export const addnumerical = async (req, res) => {
@@ -30,7 +30,7 @@ export const updateNumerical = async (req, res) => {
     const {maths,sid} = req.body;
     try {
         let avg=maths;
-        const updatedNumerical=await NumericalModel.findOneAndUpdate({sid:sid},{$set:{maths,avg}});
+        const updatedNumerical=await NumericalModel.findOneAndUpdate({sid:sid},{$set:{maths,avg}},{new:true});
         res.status(200).json({ message: 'Literature updated',data:updatedNumerical });
     } catch (error) {
         res.status(409).json({ message: error.message });
