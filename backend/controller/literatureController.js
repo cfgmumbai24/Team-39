@@ -2,10 +2,35 @@ import LiteratureModel from '../models/literatureModel';
 
 
 export const addLiterature = async (req, res) => {
-    const data = req.body;
+    const {english,hindi,marathi,sid} = req.body;
     try {
-        const newLit = await LiteratureModel.create(data);
-        res.status(201).json(newnum);
+        let avg=(english+hindi+marathi)/3;
+        const newLiterature=new LiteratureModel({
+            english,hindi,marathi,sid,avg
+        })
+        await newLiterature.save();
+        res.status(201).json(newLiterature);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const getLiterature = async (req, res) => {
+    const {sid}=req.body;
+    try {
+        const totalLiterature=await LiteratureModel.find({sid:sid});
+        res.status(200).json(totalLiterature);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateLiterature = async (req, res) => {
+    const {english,hindi,marathi,sid} = req.body;
+    try {
+        let avg=(english+hindi+marathi)/3;
+        const updatedLiterature=await LiteratureModel.findOneAndUpdate({sid:sid},{$set:{english,hindi,marathi,avg}});
+        res.status(200).json({ message: 'Literature updated',data:updatedLiterature });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
