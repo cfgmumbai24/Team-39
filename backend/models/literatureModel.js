@@ -9,4 +9,5 @@ const literatureSchema =new  mongoose.Schema({
     createdAt:{type:Date,required:true,default:Date.now()}
 
 })
-module.exports= mongoose.model('Literature',literatureSchema);
+const LiteratureModel=mongoose.model("Literature",literatureSchema)
+export default LiteratureModel

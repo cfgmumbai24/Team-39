@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-const FoundationModel = new mongoose.Schema({
+const FoundationSchema = new mongoose.Schema({
   sid: {
     type: Number,
     required:true,
@@ -12,5 +12,5 @@ const FoundationModel = new mongoose.Schema({
   avg:{type:Number,default:0},
   createdAt:{type:Date,default:Date.now},
 })
-
-module.exports = mongoose.model('Foundation', FoundationModel)
+const FoundationModel=mongoose.model("Foundation",FoundationSchema)
+export default FoundationModel
