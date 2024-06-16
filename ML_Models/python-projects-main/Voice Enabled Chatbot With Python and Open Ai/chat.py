@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key=""
+openai.api_key="ENTER YOUR KEY"
 def get_response(input):
     response = openai.Completion.create(
   model="text-davinci-003",
