@@ -18,7 +18,7 @@ class SignUpPageUserState extends State<SignUpPageUser> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final String allowedDomain = "nitp.ac.in";
+  final String allowedDomain = "ac.in";
   bool isChecked = false;
 
   /* void showToast(String message) {
@@ -153,8 +153,8 @@ class SignUpPageUserState extends State<SignUpPageUser> {
           children: [
             Image.asset(
               AppIcons.app_icon,
-              height: 48,
-              width: 48,
+              height: 80,
+              width: 80,
             )
           ],
         ),
@@ -246,7 +246,7 @@ class SignUpPageUserState extends State<SignUpPageUser> {
               SizedBox(height: 16),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    foregroundColor: AppColors.navIconColor,
+                    foregroundColor:Colors.black,
                     backgroundColor: AppColors.tabBackgroundColor,
                     padding: EdgeInsets.symmetric(horizontal: 120, vertical: 7),
                     textStyle: TextStyle(fontSize: 15),
@@ -289,13 +289,13 @@ class SignUpPageUserState extends State<SignUpPageUser> {
               SizedBox(
                 height: 20,
               ),
-              Row(
+              /*Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        foregroundColor: AppColors.borderColor,
-                        backgroundColor: AppColors.navIconColor,
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.green,
                         padding:
                             EdgeInsets.symmetric(horizontal: 30, vertical: 3),
                         textStyle: TextStyle(fontSize: 15),
@@ -327,8 +327,8 @@ class SignUpPageUserState extends State<SignUpPageUser> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        foregroundColor: AppColors.borderColor,
-                        backgroundColor: AppColors.navIconColor,
+                        foregroundColor:Colors.black,
+                        backgroundColor: Colors.green,
                         padding:
                             EdgeInsets.symmetric(horizontal: 30, vertical: 3),
                         textStyle: TextStyle(fontSize: 15),
@@ -349,7 +349,7 @@ class SignUpPageUserState extends State<SignUpPageUser> {
                     ),
                   ),
                 ],
-              ),
+              ),*/
             ],
           ),
         ),

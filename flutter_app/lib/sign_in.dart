@@ -25,8 +25,7 @@ class _DetailsPageState extends State<DetailsPage> {
   final cpasswordController = TextEditingController();
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
-  final rollController = TextEditingController();
-  final String allowedDomain = "nitp.ac.in";
+  final String allowedDomain = "ac.in";
 
   Future<void> _signUp() async {
     if (passwordController.text == cpasswordController.text) {
@@ -95,7 +94,6 @@ class _DetailsPageState extends State<DetailsPage> {
     emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
-    rollController.dispose();
     phoneController.dispose();
     cpasswordController.dispose();
   }
@@ -111,8 +109,8 @@ class _DetailsPageState extends State<DetailsPage> {
           child: Column(children: [
             Image.asset(
              AppIcons.app_icon ,
-              height: 48,
-              width: 48,
+              height: 70,
+              width: 70,
             ),
             const Padding(
                 padding: EdgeInsets.only(top: 15, bottom: 10),
@@ -121,13 +119,13 @@ class _DetailsPageState extends State<DetailsPage> {
                         fontSize: 28,
                         fontWeight: FontWeight.w700,
                         fontFamily: AppFontFamily.poppins))),
-            const CircleAvatar(
+            /*const CircleAvatar(
               radius: 47,
             ),
             const Text(
               ADD_PHOTO,
               style: TextStyle(fontSize: 12, color: AppColors.grey),
-            ),
+            ),*/
             TextFieldController(
                 textEditingController: nameController,
                 hinttext: NAME,
@@ -140,10 +138,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 textEditingController: phoneController,
                 hinttext: PHONE,
                 textInputType: TextInputType.phone),
-            TextFieldController(
-                textEditingController: rollController,
-                hinttext: ROLL,
-                textInputType: TextInputType.number),
+
             TextFieldController(
                 textEditingController: passwordController,
                 hinttext: PASSWORD_TEXT_FIELD,
@@ -217,8 +212,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.green,
-                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.green,
                         padding:
                             EdgeInsets.symmetric(horizontal: 30, vertical: 3),
                         textStyle: TextStyle(fontSize: 15),
