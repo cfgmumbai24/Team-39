@@ -22,9 +22,9 @@ const App = () => {
           <Route path='/:id/edit/foundation' element={<FoundationForm />} />
           <Route path='/:id/edit/literature' element={<Literatureform />} />
           <Route path = '/:id/edit/numerical' element = {<NumericalForm/>} />
-          <Route path = '/:id/progress/chartf' element  = {<ChartF/>}/>
-          <Route path = '/:id/progress/chartn' element  = {<ChartN/>}/>
-          <Route path = '/:id/progress/chartl' element  = {<ChartsL/>}/>
+          <Route path = '/:id/progress/:month/chartf' element  = {<ChartF/>}/>
+          <Route path = '/:id/progress/:month/chartn' element  = {<ChartN/>}/>
+          <Route path = '/:id/progress/:month/chartl' element  = {<ChartsL/>}/>
           {/* <Route path='/literature' element={<Literatureform/>} /> */}
         </Routes>
       </Router>
