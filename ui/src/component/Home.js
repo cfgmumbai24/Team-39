@@ -5,16 +5,10 @@ import Navbar from '../pages/Navbar';
 const Home = () => {
     const [rollno, setRollno] = useState('');
     const [error, setError] = useState(''); 
-        const location=useLocation();
     const navigate = useNavigate();
     const Progress = (e) => {
-        e.preventDefault();
-        axios
-          .post("https://localhost:8000/progress?sId="+rollno)
-          .then((result) => {
-            navigate("/progress");
-          })
-          .catch((err) => console.log(err));
+            e.preventDefault();
+            navigate(`/${rollno}/progress`);
       };
         const Edit = (e) => {
             e.preventDefault();
@@ -54,7 +48,7 @@ const Home = () => {
             {/* Buttons */}
             <div className="flex space-x-4">
                 
-                <button onClickCapture={()=>{navigate("/progress")}}
+                <button
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg h-16 w-full"
                 onClick={Progress}
                 >
