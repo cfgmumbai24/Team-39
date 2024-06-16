@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Progress from './component/Progress';
 import Edit from './component/Edit';
 import FoundationForm from './pages/foundationform';
-import Literatureform from './pages/literatureForm';
+import Literatureform from './pages/literatureform';
 import Updateoredit from './pages/updateoredit';
 import NumericalForm from './pages/NumericalForm';
 import ChartF from './pages/ChartF';

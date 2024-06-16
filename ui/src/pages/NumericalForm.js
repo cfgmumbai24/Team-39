@@ -37,7 +37,9 @@ const NumericalForm = () => {
         {
           submitted?(
             <>
-              <div>Submitted</div>
+              <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-center shadow-lg mt-5">
+              Successfully Submitted
+          </div>
             </>
           ):
           (
