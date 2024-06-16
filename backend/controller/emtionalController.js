@@ -18,7 +18,7 @@ export const addEmo = async (req, res) => {
 export const getEmo = async (req, res) => {
     const {sid}=req.body;
     try {
-        const totalEmo=await EmotionalModel.find({sid:sid});
+        const totalEmo=await EmotionalModel.find({sid});
         res.status(200).json(totalEmo);
     } catch (error) {
         console.log(error)

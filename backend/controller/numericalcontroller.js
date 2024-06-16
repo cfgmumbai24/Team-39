@@ -19,7 +19,7 @@ export const addnumerical = async (req, res) => {
 export const getNumerical = async (req, res) => {
     const {sid}=req.body;
     try {
-        const totalNumerical=await NumericalModel.find({sid:sid});
+        const totalNumerical=await NumericalModel.find({sid});
         res.status(200).json(totalNumerical);
     } catch (error) {
         console.log(error)

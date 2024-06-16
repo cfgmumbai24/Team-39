@@ -3,7 +3,7 @@ import { addfoundation,getfoundation,updatefoundation } from '../controller/foun
 const router = express.Router();
 
 router.post('/',addfoundation);
-router.get('/',getfoundation);
+router.post('/f',getfoundation);
 router.put('/',updatefoundation);
 export default router;
 

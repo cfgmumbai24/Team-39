@@ -9,6 +9,7 @@ import foundationRoute from '../backend/routes/foundationRoute.js'
 import literatureRoute from '../backend/routes/literatureRoute.js'
 import numericalRoute from '../backend/routes/numericalRoute.js'
 import emotionalRoute from '../backend/routes/emotionalRoute.js'
+import UserRoute from "./routes/userAuthRoutes.js";
 
 
 dotenv.config();
@@ -16,13 +17,18 @@ const app=express();
 const mongo_url=process.env.MONGO||"mongodb+srv://raj2104:raj2104@cluster0.7v7kseg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const PORT=5000
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:3000",
+  })
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(helmet());
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
-
+app.use('/userauth',UserRoute)
 app.use("/found", foundationRoute);
 app.use("/lit", literatureRoute);
 app.use("/num", numericalRoute);

@@ -18,7 +18,7 @@ export const addLiterature = async (req, res) => {
 export const getLiterature = async (req, res) => {
     const {sid}=req.body;
     try {
-        const totalLiterature=await LiteratureModel.find({sid:sid});
+        const totalLiterature=await LiteratureModel.find({sid});
         res.status(200).json(totalLiterature);
     } catch (error) {
         console.log(error)
