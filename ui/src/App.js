@@ -12,8 +12,6 @@ import ChartN from './pages/ChartN';
 import ChartsL from './pages/ChartL';
 import Signup from './pages/SingUpPage';
 import LoginPage from './pages/LoginPage';
-import Signup from './pages/SingUpPage';
-import LoginPage from './pages/LoginPage';
 
 const App = () => {
   return (
@@ -29,6 +27,8 @@ const App = () => {
           <Route path = '/:id/progress/chartf' element  = {<ChartF/>}/>
           <Route path = '/:id/progress/chartn' element  = {<ChartN/>}/>
           <Route path = '/:id/progress/chartl' element  = {<ChartsL/>}/>
+          <Route path='/signup' element={<Signup/>}></Route>
+          <Route path='/login' element={<LoginPage/>}></Route>
           {/* <Route path='/literature' element={<Literatureform/>} /> */}
         </Routes>
       </Router>
