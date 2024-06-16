@@ -2,7 +2,9 @@ import TeacherModel from "../models/teacherModel.js";
 export const logInController = async(req,res,next)=>{
     const user = await TeacherModel.findOne({username:req.body.username})
     if(!user){
-        return res.json({message:"User does not exists / Incorrect username"})
+        return res.json({message:"User does not exists / Incorrect username",
+            access:false
+        })
     }
     if(!(user.password===req.body.password)){
         return res.json({
