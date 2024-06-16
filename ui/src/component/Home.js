@@ -1,27 +1,18 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link,  useLocation,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../pages/Navbar';
 const Home = () => {
     const [rollno, setRollno] = useState('');
+    const [error, setError] = useState(''); 
     const navigate = useNavigate();
     const Progress = (e) => {
-        e.preventDefault();
-        axios
-          .post("https://localhost:8000/progress?sId="+rollno)
-          .then((result) => {
-            navigate("/progress");
-          })
-          .catch((err) => console.log(err));
+            e.preventDefault();
+            navigate(`/${rollno}/progress`);
       };
         const Edit = (e) => {
             e.preventDefault();
-            axios
-            .post("https://localhost:8000/edit?sId="+rollno)
-            .then((result) => {
-                navigate("/edit");
-            })
-            .catch((err) => console.log(err));
+            navigate(`/${rollno}/edit`);
         };
 
     return (
@@ -49,18 +40,21 @@ const Home = () => {
                 onChange={(e) => setRollno(e.target.value)}
                 type="text"
                 placeholder="Enter Student's Rollno"
-                className="border-2 border-gray-300 p-2 w-full rounded focus:border-blue-500 focus:outline-none rounded-xl"
+                className="border-2 border-gray-300 p-2 w-full focus:border-blue-500 focus:outline-none rounded-xl"
                 />
             </div>
 
+            {error && <div className="text-red-500 mb-4">{error}</div>}
             {/* Buttons */}
             <div className="flex space-x-4">
+                
                 <button
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg h-16 w-full"
                 onClick={Progress}
                 >
                 Progress
                 </button>
+                
                 <button
                 className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg h-16 w-full"
                 onClick={Edit}

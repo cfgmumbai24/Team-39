@@ -4,8 +4,14 @@ import Home from './component/Home';
 import Progress from './component/Progress';
 import Edit from './component/Edit';
 import FoundationForm from './pages/foundationform';
-import Literatureform from './pages/LiteratureForm';
+import Literatureform from './pages/literatureform';
 import Updateoredit from './pages/updateoredit';
+import NumericalForm from './pages/NumericalForm';
+import ChartF from './pages/ChartF';
+import ChartN from './pages/ChartN';
+import ChartsL from './pages/ChartL';
+import Signup from './pages/SingUpPage';
+import LoginPage from './pages/LoginPage';
 import Signup from './pages/SingUpPage';
 import LoginPage from './pages/LoginPage';
 
@@ -15,12 +21,15 @@ const App = () => {
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/progress' element={<Progress />} />
-          <Route path='/edit' element={<Updateoredit />} />
-          <Route path='/foundation' element={<FoundationForm />} />
-          <Route path='/literature' element={<Literatureform/>} />
-          <Route path='/signUp' element={<Signup/>} />
-          <Route path='/login' element={<LoginPage/>} />
+          <Route path='/:id/progress' element={<Progress />} />
+          <Route path='/:id/edit' element={<Updateoredit />} />
+          <Route path='/:id/edit/foundation' element={<FoundationForm />} />
+          <Route path='/:id/edit/literature' element={<Literatureform />} />
+          <Route path = '/:id/edit/numerical' element = {<NumericalForm/>} />
+          <Route path = '/:id/progress/chartf' element  = {<ChartF/>}/>
+          <Route path = '/:id/progress/chartn' element  = {<ChartN/>}/>
+          <Route path = '/:id/progress/chartl' element  = {<ChartsL/>}/>
+          {/* <Route path='/literature' element={<Literatureform/>} /> */}
         </Routes>
       </Router>
 

@@ -4,7 +4,9 @@ import FoundationModel from '../models/foundationModel.js';
 export const addfoundation = async (req, res) => {
     const {speaking,learning,writing,physicalInvolvement,craft,sid} = req.body;
     try {
+        console.log(speaking,learning,writing,physicalInvolvement,craft,sid)
         let avg=(speaking+learning+writing+physicalInvolvement+craft)/5;
+        console.log(avg);
         const newFoundation=new FoundationModel({
             speaking,learning,writing,physicalInvolvement,craft,sid,avg
         })
@@ -16,14 +18,30 @@ export const addfoundation = async (req, res) => {
 }
 
 export const getfoundation = async (req, res) => {
-    const {sid}=req.body;
+    const { sid, month } = req.body;
+
     try {
-        const totalFoundation=await FoundationModel.find({sid:sid});
+        // Ensure month is treated as a number
+        const monthNumber = month;
+
+        const totalFoundation = await FoundationModel.aggregate([
+            {
+                $match: {
+                    sid: sid,
+                    $expr: {
+                        $eq: [{ $month: "$createdAt" }, monthNumber]
+                    }
+                }
+            }
+        ]);
+        console.log(totalFoundation);
         res.status(200).json(totalFoundation);
     } catch (error) {
-        console.log(error)
+        console.log(sid);
+        console.log(error);
+        res.status(500).json({ error: 'An error occurred while fetching the data' });
     }
-}
+};
 
 export const updatefoundation = async (req, res) => {
     const {speaking,learning,writing,physicalInvolvement,craft,sid} = req.body;
