@@ -1,7 +1,7 @@
 import openai
 import speech_recognition as sr
 
-openai.api_key = ""
+openai.api_key = "ENTER YOUR KEY"
 
 def get_voice_input():
     
