@@ -22,12 +22,12 @@ export const getfoundation = async (req, res) => {
 
     try {
         // Ensure month is treated as a number
-        const monthNumber = month;
-
+        const monthNumber = Number(month);
+        console.log(monthNumber)
         const totalFoundation = await FoundationModel.aggregate([
             {
                 $match: {
-                    sid: sid,
+                    sid: Number(sid),
                     $expr: {
                         $eq: [{ $month: "$createdAt" }, monthNumber]
                     }

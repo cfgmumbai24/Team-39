@@ -16,9 +16,19 @@ export const addLiterature = async (req, res) => {
 }
 
 export const getLiterature = async (req, res) => {
-    const {sid}=req.body;
+    const {sid,month}=req.body;
     try {
-        const totalLiterature=await LiteratureModel.find({sid});
+        const monthNumber = Number(month);
+        const totalLiterature=await LiteratureModel.aggregate([
+            {
+                $match: {
+                    sid: Number(sid),
+                    $expr: {
+                        $eq: [{ $month: "$createdAt" }, monthNumber]
+                    }
+                }
+            }
+        ]);
         res.status(200).json(totalLiterature);
     } catch (error) {
         console.log(error)

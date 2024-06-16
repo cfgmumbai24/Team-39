@@ -57,7 +57,7 @@ import Navbar from "./Navbar";
 function ChartsF() {
   const { id,month } = useParams();
   const [record, setRecord] = useState([]);
-
+  const montharray=["January","February","March","April","May","June","July","August","September","October","November","December"];
   useEffect(() => {
     // Define an async function to fetch data and process it
     const fetchData = async () => {
@@ -80,9 +80,12 @@ function ChartsF() {
   }, [id]);
 
   return (
+    <>
+    <Navbar />
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <Navbar />
-      <h1 className="text-2xl font-bold my-4">Graph Report</h1>
+      <h1 className="text-2xl font-bold my-4">Foundation Graph Report</h1>
+      <h1 className="text-2xl font-bold my-4">Month: {montharray[month-1]}</h1>
+      <h1 className="text-2xl font-bold my-4">Roll No: {id}</h1>
       <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
         <ResponsiveContainer width="100%" height={500}>
           <LineChart data={record} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
@@ -95,6 +98,7 @@ function ChartsF() {
         </ResponsiveContainer>
       </div>
     </div>
+    </>
   );
 }
 

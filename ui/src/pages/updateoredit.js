@@ -23,6 +23,10 @@ const Updateoredit = () => {
         e.preventDefault();
         navigate(`/${id}/edit/numerical`);
     }
+    const soci=(e)=>{
+        e.preventDefault();
+        navigate(`/${id}/edit/socio`);
+    }
   return (
     <div>
         <div className='block'>
@@ -30,14 +34,17 @@ const Updateoredit = () => {
         </div>
     <div className="flex flex-wrap justify-center gap-x-20 mt-16">
         
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={found}>
+    <button className="h-40 w-40 border-2 border-gray-300 p-2 m-2 rounded-full bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={found}>
         Foundation
     </button>
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={lit}>
+    <button className="h-40 w-40 border-2 border-gray-300 p-2 m-2 rounded-full bg-green-500 text-white font-bold hover:bg-green-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={lit}>
         Literature
     </button>
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-yellow-500 text-white font-bold hover:bg-yellow-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={num}>
+    <button className="h-40 w-40 border-2 border-gray-300 p-2 m-2 rounded-full bg-yellow-500 text-white font-bold hover:bg-yellow-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={num}>
         Numerical
+    </button>
+    <button className="h-40 w-40 border-2 border-gray-300 p-2 m-2 rounded-full bg-orange-500 text-white font-bold hover:bg-yellow-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={soci}>
+    Interpersonal-Emotional
     </button>
     </div>
     </div>

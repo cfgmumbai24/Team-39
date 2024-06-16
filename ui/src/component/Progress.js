@@ -85,27 +85,9 @@ const Progress = () => {
   return (
     <div>
       <Navbar/>
-      <div> {display()}</div>
-      <div className="flex flex-wrap justify-center gap-x-20 mt-4 ">
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={()=>{setFoundation(true);
-        setLanguage(false);
-        setNumerical(false);
-    }}>
-        Foundation
-    </button>
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={()=>{setFoundation(false);
-        setLanguage(true);
-        setNumerical(false);}}>
-        Language
-    </button>
-    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-yellow-500 text-white font-bold hover:bg-yellow-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={()=>{setFoundation(false);
-        setLanguage(false);
-        setNumerical(true);}}>
-        Numerical
-    </button>
-    </div>
+      {/* <div> {display()}</div> */}
       
-    <div className='flex flex-col gap-y-8 mt-6'>
+  <div className='flex flex-col gap-y-8 mt-20'>
       
   <div className='flex flex-row justify-center gap-x-8'>
     <div className={getClassNames(1)} onClick={() => setMonth(1)}>
@@ -148,10 +130,32 @@ const Progress = () => {
           Dec
     </div>
   </div>
-    <div className=' flex flex-row justify-center'>
-        <button className=' text-2xl bg-green-500 text-white p-4 rounded-2xl w-[150px] fle'>Generate Report</button>
-    </div>
     
+      <div className="flex flex-wrap justify-center gap-x-20 mt-4 ">
+    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-blue-500 text-white font-bold hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartf}>
+        Foundation
+    </button>
+    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartl}>
+        Language
+    </button>
+    <button className="h-24 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-yellow-500 text-white font-bold hover:bg-yellow-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartn}>
+        Numerical
+    </button>
+    </div>
+    <div className="flex flex-wrap justify-center gap-x-20 mt-4 ">
+    <button className="h-20 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-gray-300 text-white font-bold hover:bg-gray-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartf}>
+        Quater I
+    </button>
+    <button className="h-20 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-gray-300 text-white font-bold hover:bg-gray-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartl}>
+        Quater II
+    </button>
+    <button className="h-20 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-gray-300 text-white font-bold hover:bg-gray-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartn}>
+        Quater III
+    </button>
+    <button className="h-20 w-48 border-2 border-gray-300 p-2 m-2 rounded-lg bg-gray-300 text-white font-bold hover:bg-gray-600 hover:shadow-lg transition duration-300 ease-in-out" onClick={chartf}>
+        Quater IV
+    </button>
+    </div>
 
   </div>
 

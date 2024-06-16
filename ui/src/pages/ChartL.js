@@ -4,15 +4,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function ChartsL() {
-  const { id } = useParams();
+  const { id ,month} = useParams();
   const [record, setRecord] = useState([]);
-
+  const montharray=["January","February","March","April","May","June","July","August","September","October","November","December"];
   useEffect(() => {
     // Define an async function to fetch data and process it
     const fetchData = async () => {
       try {
         // Fetch data from the server
-        const response = await axios.post('http://localhost:5000/lit/l', { sid: id });
+        const response = await axios.post('http://localhost:5000/lit/l', { sid: id ,month:month});
         const data = response.data; // Extract the data from the response
         const newData = data.map((item, index) => ({
           ...item,
@@ -32,6 +32,8 @@ function ChartsL() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <h1 className="text-2xl font-bold my-4">Literature Graph Report</h1>
+      <h1 className="text-2xl font-bold my-4">Month: {montharray[month-1]}</h1>
+      <h1 className="text-2xl font-bold my-4">Roll No: {id}</h1>
       <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
         <ResponsiveContainer width="100%" height={500}>
           <LineChart data={record} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
