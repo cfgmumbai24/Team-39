@@ -17,9 +17,19 @@ export const addnumerical = async (req, res) => {
     }
 }
 export const getNumerical = async (req, res) => {
-    const {sid}=req.body;
+    const {sid,month}=req.body;
     try {
-        const totalNumerical=await NumericalModel.find({sid});
+        const monthNumber = Number(month);
+        const totalNumerical=await NumericalModel.aggregate([
+            {
+                $match: {
+                    sid: Number(sid),
+                    $expr: {
+                        $eq: [{ $month: "$createdAt" }, monthNumber]
+                    }
+                }
+            }
+        ]);
         res.status(200).json(totalNumerical);
     } catch (error) {
         console.log(error)

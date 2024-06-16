@@ -16,9 +16,19 @@ export const addEmo = async (req, res) => {
 }
 
 export const getEmo = async (req, res) => {
-    const {sid}=req.body;
+    const {sid,month}=req.body;
     try {
-        const totalEmo=await EmotionalModel.find({sid});
+        const monthNumber = Number(month);
+        const totalEmo=await EmotionalModel.aggregate([
+            {
+                $match: {
+                    sid: Number(sid),
+                    $expr: {
+                        $eq: [{ $month: "$createdAt" }, monthNumber]
+                    }
+                }
+            }
+        ]);
         res.status(200).json(totalEmo);
     } catch (error) {
         console.log(error)
